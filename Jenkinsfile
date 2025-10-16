@@ -33,6 +33,11 @@ pipeline {
                 '''
             }
         }
+        withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKER_TOKEN')]) {
+    sh 'docker login -u <your-username> -p $DOCKER_TOKEN'
+    sh 'docker push <your-image>'
+}
+
 
         stage('Build Docker Image') {
             steps {
