@@ -1,0 +1,11 @@
+# pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mini-toolchain-pod
+spec:
+  containers:
+  - name: mini-toolchain
+    image: node:18-alpine
+    command: ["node", "-e", "console.log('Mini Toolchain running in K8s!'); process.exit(0)"]
+    # For simplicity, using inline command since it's a one-time print; adjust for server if needed
